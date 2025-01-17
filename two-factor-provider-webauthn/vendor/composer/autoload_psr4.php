@@ -20,7 +20,7 @@ return array(
     'Sop\\CryptoEncoding\\' => array($vendorDir . '/sop/crypto-encoding/lib/CryptoEncoding'),
     'Sop\\CryptoBridge\\' => array($vendorDir . '/sop/crypto-bridge/lib/CryptoBridge'),
     'Sop\\ASN1\\' => array($vendorDir . '/sop/asn1/lib/ASN1'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2300801cebb5363853904e6e184d77f9
+class ComposerStaticInitWWTFWA
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -118,7 +118,7 @@ class ComposerStaticInit2300801cebb5363853904e6e184d77f9
         ),
         'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -557,17 +557,14 @@ class ComposerStaticInit2300801cebb5363853904e6e184d77f9
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Http\\Message\\UriFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UriFactoryInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareInterface.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareTrait.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/src/AbstractLogger.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/src/InvalidArgumentException.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/src/LogLevel.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/src/NullLogger.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Sop\\ASN1\\Component\\Identifier' => __DIR__ . '/..' . '/sop/asn1/lib/ASN1/Component/Identifier.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Sop\\ASN1\\Component\\Length' => __DIR__ . '/..' . '/sop/asn1/lib/ASN1/Component/Length.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Sop\\ASN1\\DERData' => __DIR__ . '/..' . '/sop/asn1/lib/ASN1/DERData.php',
@@ -931,9 +928,9 @@ class ComposerStaticInit2300801cebb5363853904e6e184d77f9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2300801cebb5363853904e6e184d77f9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2300801cebb5363853904e6e184d77f9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2300801cebb5363853904e6e184d77f9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitWWTFWA::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitWWTFWA::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitWWTFWA::$classMap;
 
         }, null, ClassLoader::class);
     }

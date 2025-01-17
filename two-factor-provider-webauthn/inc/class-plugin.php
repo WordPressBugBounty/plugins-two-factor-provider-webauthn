@@ -19,15 +19,19 @@ final class Plugin {
 		$basename = plugin_basename( dirname( __DIR__ ) . '/plugin.php' );
 		add_action( 'activate_' . $basename, [ $this, 'maybe_update_schema' ] );
 		add_action( 'plugins_loaded', [ $this, 'maybe_update_schema' ] );
-		add_action( 'init', [ $this, 'init' ] );
+		add_action( 'init', [ $this, 'init' ], 9 );
+
+		if ( is_admin() ) {
+			add_action( 'init', [ Admin::class, 'instance' ], 11 );
+		}
 	}
 
 	public function init(): void {
 		load_plugin_textdomain( 'two-factor-provider-webauthn', false, plugin_basename( dirname( __DIR__ ) ) . '/lang/' );
-		add_filter( 'two_factor_providers', [ $this, 'two_factor_providers' ] );
 
-		if ( is_admin() ) {
-			Admin::instance();
+		$schema = Schema::instance();
+		if ( $schema->is_installed() ) {
+			add_filter( 'two_factor_providers', [ $this, 'two_factor_providers' ] );
 		}
 	}
 
