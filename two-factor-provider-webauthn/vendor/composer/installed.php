@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wildwolf/two-factor-provider-webauthn',
-        'pretty_version' => '2.5.2',
-        'version' => '2.5.2.0',
-        'reference' => '05b5d813b01be60dec37b5f776a1032ea6533987',
+        'pretty_version' => '2.5.3',
+        'version' => '2.5.3.0',
+        'reference' => '88013fc9d140769a3b52ca0bab7e252d9c81c6b5',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -299,9 +299,9 @@
             'dev_requirement' => false,
         ),
         'wildwolf/two-factor-provider-webauthn' => array(
-            'pretty_version' => '2.5.2',
-            'version' => '2.5.2.0',
-            'reference' => '05b5d813b01be60dec37b5f776a1032ea6533987',
+            'pretty_version' => '2.5.3',
+            'version' => '2.5.3.0',
+            'reference' => '88013fc9d140769a3b52ca0bab7e252d9c81c6b5',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
