@@ -9,9 +9,7 @@ class ComposerStaticInitWWTFWA
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -22,8 +20,6 @@ class ComposerStaticInitWWTFWA
         ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Php80\\' => 23,
-            'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\Cache\\' => 24,
             'Symfony\\Component\\VarExporter\\' => 30,
@@ -67,14 +63,6 @@ class ComposerStaticInitWWTFWA
         'TypistTech\\Imposter\\' => 
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter/src',
-        ),
-        'Symfony\\Polyfill\\Php80\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        'Symfony\\Polyfill\\Php73\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
         'Symfony\\Contracts\\Service\\' => 
         array (
@@ -160,11 +148,7 @@ class ComposerStaticInitWWTFWA
     );
 
     public static $classMap = array (
-        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
-        'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',
-        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'TwoFactor_Provider_WebAuthn' => __DIR__ . '/../..' . '/inc/class-twofactor-provider-webauthn.php',
         'TypistTech\\Imposter\\ArrayUtil' => __DIR__ . '/..' . '/typisttech/imposter/src/ArrayUtil.php',
         'TypistTech\\Imposter\\Config' => __DIR__ . '/..' . '/typisttech/imposter/src/Config.php',
@@ -186,8 +170,6 @@ class ComposerStaticInitWWTFWA
         'TypistTech\\Imposter\\StringUtil' => __DIR__ . '/..' . '/typisttech/imposter/src/StringUtil.php',
         'TypistTech\\Imposter\\Transformer' => __DIR__ . '/..' . '/typisttech/imposter/src/Transformer.php',
         'TypistTech\\Imposter\\TransformerInterface' => __DIR__ . '/..' . '/typisttech/imposter/src/TransformerInterface.php',
-        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
-        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'WildWolf\\Utils\\Singleton' => __DIR__ . '/..' . '/wildwolf/singleton-trait/src/Singleton.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\AJAX' => __DIR__ . '/../..' . '/inc/class-ajax.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Admin' => __DIR__ . '/../..' . '/inc/class-admin.php',
@@ -841,7 +823,6 @@ class ComposerStaticInitWWTFWA
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\ChainAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/ChainAdapter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\CouchbaseBucketAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/CouchbaseBucketAdapter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\CouchbaseCollectionAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/CouchbaseCollectionAdapter.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\DoctrineAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/DoctrineAdapter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\DoctrineDbalAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/DoctrineDbalAdapter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\FilesystemAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/FilesystemAdapter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Adapter\\FilesystemTagAwareAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/FilesystemTagAwareAdapter.php',
@@ -867,7 +848,6 @@ class ComposerStaticInitWWTFWA
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\DependencyInjection\\CachePoolClearerPass' => __DIR__ . '/..' . '/symfony/cache/DependencyInjection/CachePoolClearerPass.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\DependencyInjection\\CachePoolPass' => __DIR__ . '/..' . '/symfony/cache/DependencyInjection/CachePoolPass.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\DependencyInjection\\CachePoolPrunerPass' => __DIR__ . '/..' . '/symfony/cache/DependencyInjection/CachePoolPrunerPass.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\DoctrineProvider' => __DIR__ . '/..' . '/symfony/cache/DoctrineProvider.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Exception\\CacheException' => __DIR__ . '/..' . '/symfony/cache/Exception/CacheException.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/cache/Exception/InvalidArgumentException.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/cache/Exception/LogicException.php',
@@ -888,41 +868,64 @@ class ComposerStaticInitWWTFWA
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\FilesystemCommonTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/FilesystemCommonTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\FilesystemTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/FilesystemTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis5Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis5Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis6Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis6Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis6ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis6ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster5Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster5Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster6Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster6Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster6ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster6ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisClusterNodeProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisClusterNodeProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisClusterProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisClusterProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RelayProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RelayProxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RelayProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RelayProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\CopyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/CopyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\GeosearchTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/GeosearchTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\GetrangeTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/GetrangeTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\HsetTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/HsetTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\MoveTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/MoveTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\NullableReturnTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/NullableReturnTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\PfcountTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/PfcountTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\ClassNotFoundException' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/ClassNotFoundException.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/ExceptionInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/LogicException.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\NotInstantiableTypeException' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/NotInstantiableTypeException.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Hydrator' => __DIR__ . '/..' . '/symfony/var-exporter/Hydrator.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Instantiator' => __DIR__ . '/..' . '/symfony/var-exporter/Instantiator.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\Exporter' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Exporter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\Hydrator' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Hydrator.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\LazyObjectRegistry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectRegistry.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\LazyObjectState' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectState.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\LazyObjectTrait' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/LazyObjectTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\Reference' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Reference.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\Registry' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Registry.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Internal\\Values' => __DIR__ . '/..' . '/symfony/var-exporter/Internal/Values.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\LazyGhostTrait' => __DIR__ . '/..' . '/symfony/var-exporter/LazyGhostTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\LazyObjectInterface' => __DIR__ . '/..' . '/symfony/var-exporter/LazyObjectInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\LazyProxyTrait' => __DIR__ . '/..' . '/symfony/var-exporter/LazyProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\ProxyHelper' => __DIR__ . '/..' . '/symfony/var-exporter/ProxyHelper.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\VarExporter' => __DIR__ . '/..' . '/symfony/var-exporter/VarExporter.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\CacheInterface' => __DIR__ . '/..' . '/symfony/cache-contracts/CacheInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\CacheTrait' => __DIR__ . '/..' . '/symfony/cache-contracts/CacheTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\CallbackInterface' => __DIR__ . '/..' . '/symfony/cache-contracts/CallbackInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\ItemInterface' => __DIR__ . '/..' . '/symfony/cache-contracts/ItemInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\NamespacedPoolInterface' => __DIR__ . '/..' . '/symfony/cache-contracts/NamespacedPoolInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Cache\\TagAwareCacheInterface' => __DIR__ . '/..' . '/symfony/cache-contracts/TagAwareCacheInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\Attribute\\Required' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/Required.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\Attribute\\SubscribedService' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/SubscribedService.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ResetInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ResetInterface.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceCollectionInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceCollectionInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceLocatorTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceLocatorTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceMethodsSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceMethodsSubscriberTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceProviderInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceProviderInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\Test\\ServiceLocatorTest' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTest.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Contracts\\Service\\Test\\ServiceLocatorTestCase' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTestCase.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\WebAuthn_Credential_Store' => __DIR__ . '/../..' . '/inc/class-webauthn-credential-store.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\WebAuthn_Provider' => __DIR__ . '/../..' . '/inc/class-webauthn-provider.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\WebAuthn_User' => __DIR__ . '/../..' . '/inc/class-webauthn-user.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\WebAuthn_User_Credential' => __DIR__ . '/../..' . '/inc/class-webauthn-user-credential.php',
+        '©' => __DIR__ . '/..' . '/symfony/cache/Traits/ValueWrapper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

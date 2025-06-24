@@ -26,5 +26,8 @@ namespace WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Contracts\Service;
  */
 interface ResetInterface
 {
+    /**
+     * @return void
+     */
     public function reset();
 }
