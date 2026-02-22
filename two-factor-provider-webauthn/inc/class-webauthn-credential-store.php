@@ -20,7 +20,7 @@ use wpdb;
  * @psalm-type CredentialRow = object{id: positive-int, user_handle: string, credential_id: string, public_key: string, counter: numeric-string, name: string, added: numeric-string, last_used: numeric-string, u2f: numeric-string}
  * @psalm-type CredentialRowArray = array{user_handle: string, credential_id: string, public_key: string, counter: int, name: string, added: int, last_used: int, u2f: int}
  */
-class WebAuthn_Credential_Store implements CredentialStoreInterface {
+final class WebAuthn_Credential_Store implements CredentialStoreInterface {
 	const REGISTERED_KEY_LEGACY_META = '_two_factor_fido_u2f_registered_key'; // Same as \Two_Factor_FIDO_U2F::REGISTERED_KEY_USER_META_KEY, which could be unavailable
 
 	/**
@@ -96,7 +96,7 @@ class WebAuthn_Credential_Store implements CredentialStoreInterface {
 		$modern = $handle ? $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->webauthn_credentials} WHERE user_handle = %s", $handle->toString() ) ) : [];
 		if ( empty( $modern ) ) {
 			/** @var array */
-			$legacy = get_user_meta( $user->ID, self::REGISTERED_KEY_LEGACY_META );
+			$legacy = get_user_meta( $user->ID, self::REGISTERED_KEY_LEGACY_META, false );
 			if ( ! empty( $legacy ) ) {
 				if ( ! $handle ) {
 					$handle = $wauser->generate_and_save_handle();

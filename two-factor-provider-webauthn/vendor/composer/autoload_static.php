@@ -13,12 +13,12 @@ class ComposerStaticInitWWTFWA
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'T' =>
         array (
             'TypistTech\\Imposter\\Plugin\\' => 27,
             'TypistTech\\Imposter\\' => 20,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\Cache\\' => 24,
@@ -31,7 +31,7 @@ class ComposerStaticInitWWTFWA
             'Sop\\CryptoBridge\\' => 17,
             'Sop\\ASN1\\' => 9,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
@@ -39,15 +39,15 @@ class ComposerStaticInitWWTFWA
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
-        'M' => 
+        'M' =>
         array (
             'MadWizard\\WebAuthn\\' => 19,
         ),
-        'K' => 
+        'K' =>
         array (
             'Kevinrob\\GuzzleCache\\' => 21,
         ),
-        'G' => 
+        'G' =>
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
@@ -56,92 +56,92 @@ class ComposerStaticInitWWTFWA
     );
 
     public static $prefixDirsPsr4 = array (
-        'TypistTech\\Imposter\\Plugin\\' => 
+        'TypistTech\\Imposter\\Plugin\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter-plugin/src',
         ),
-        'TypistTech\\Imposter\\' => 
+        'TypistTech\\Imposter\\' =>
         array (
             0 => __DIR__ . '/..' . '/typisttech/imposter/src',
         ),
-        'Symfony\\Contracts\\Service\\' => 
+        'Symfony\\Contracts\\Service\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
-        'Symfony\\Contracts\\Cache\\' => 
+        'Symfony\\Contracts\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/cache-contracts',
         ),
-        'Symfony\\Component\\VarExporter\\' => 
+        'Symfony\\Component\\VarExporter\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/var-exporter',
         ),
-        'Symfony\\Component\\Cache\\' => 
+        'Symfony\\Component\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/cache',
         ),
-        'Sop\\X509\\' => 
+        'Sop\\X509\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/x509/lib/X509',
         ),
-        'Sop\\X501\\' => 
+        'Sop\\X501\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/x501/lib/X501',
         ),
-        'Sop\\CryptoTypes\\' => 
+        'Sop\\CryptoTypes\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/crypto-types/lib/CryptoTypes',
         ),
-        'Sop\\CryptoEncoding\\' => 
+        'Sop\\CryptoEncoding\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/crypto-encoding/lib/CryptoEncoding',
         ),
-        'Sop\\CryptoBridge\\' => 
+        'Sop\\CryptoBridge\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/crypto-bridge/lib/CryptoBridge',
         ),
-        'Sop\\ASN1\\' => 
+        'Sop\\ASN1\\' =>
         array (
             0 => __DIR__ . '/..' . '/sop/asn1/lib/ASN1',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
         ),
-        'Psr\\Http\\Message\\' => 
+        'Psr\\Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Psr\\Http\\Client\\' => 
+        'Psr\\Http\\Client\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Psr\\Cache\\' => 
+        'Psr\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'MadWizard\\WebAuthn\\' => 
+        'MadWizard\\WebAuthn\\' =>
         array (
             0 => __DIR__ . '/..' . '/madwizard/webauthn/src',
         ),
-        'Kevinrob\\GuzzleCache\\' => 
+        'Kevinrob\\GuzzleCache\\' =>
         array (
             0 => __DIR__ . '/..' . '/kevinrob/guzzle-cache-middleware/src',
         ),
-        'GuzzleHttp\\Psr7\\' => 
+        'GuzzleHttp\\Psr7\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
-        'GuzzleHttp\\Promise\\' => 
+        'GuzzleHttp\\Promise\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
         ),
-        'GuzzleHttp\\' => 
+        'GuzzleHttp\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
@@ -864,29 +864,43 @@ class ComposerStaticInitWWTFWA
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Psr16Cache' => __DIR__ . '/..' . '/symfony/cache/Psr16Cache.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\ResettableInterface' => __DIR__ . '/..' . '/symfony/cache/ResettableInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\AbstractAdapterTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/AbstractAdapterTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\CachedValueInterface' => __DIR__ . '/..' . '/symfony/cache/Traits/CachedValueInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\ContractsTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/ContractsTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\FilesystemCommonTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/FilesystemCommonTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\FilesystemTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/FilesystemTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis5Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis5Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis61ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis61ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis62ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis62ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis63ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis63ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis6Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis6Proxy.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Redis6ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Redis6ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster5Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster5Proxy.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster61ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster61ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster62ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster62ProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster63ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster63ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster6Proxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster6Proxy.php',
-        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisCluster6ProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisCluster6ProxyTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisClusterNodeProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisClusterNodeProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisClusterProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisClusterProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RedisTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RedisTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RelayProxy' => __DIR__ . '/..' . '/symfony/cache/Traits/RelayProxy.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\RelayProxyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/RelayProxyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\BgsaveTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/BgsaveTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\CopyTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/CopyTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\FtTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/FtTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\GeosearchTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/GeosearchTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\GetWithMetaTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/GetWithMetaTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\GetrangeTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/GetrangeTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\HsetTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/HsetTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\IsTrackedTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/IsTrackedTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\MoveTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/MoveTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\NullableReturnTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/NullableReturnTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\PfcountTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/PfcountTrait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\Relay11Trait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/Relay11Trait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\Relay121Trait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/Relay121Trait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\Relay12Trait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/Relay12Trait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\Relay20Trait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/Relay20Trait.php',
+        'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\Cache\\Traits\\Relay\\SwapdbTrait' => __DIR__ . '/..' . '/symfony/cache/Traits/Relay/SwapdbTrait.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\ClassNotFoundException' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/ClassNotFoundException.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/ExceptionInterface.php',
         'WildWolf\\WordPress\\TwoFactorWebAuthn\\Vendor\\Symfony\\Component\\VarExporter\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/var-exporter/Exception/LogicException.php',

@@ -10,7 +10,7 @@ use WP_User;
  * @psalm-property CredentialRow[] $items
  * @psalm-suppress PropertyNotSetInConstructor
  */
-class Key_Table extends WP_List_Table {
+final class Key_Table extends WP_List_Table {
 	private WP_User $user;
 
 	public function __construct( WP_User $user ) {
@@ -53,13 +53,13 @@ class Key_Table extends WP_List_Table {
 			'rename hide-if-no-js' => sprintf(
 				'<a href="#" data-handle="%1$s" data-nonce="%2$s">%3$s</a>',
 				$item->credential_id,
-				wp_create_nonce( 'rename-key_' . $item->credential_id ),
+				(string) wp_create_nonce( 'rename-key_' . $item->credential_id ),
 				__( 'Rename', 'two-factor-provider-webauthn' )
 			),
 			'delete hide-if-no-js' => sprintf(
 				'<a href="#" data-handle="%1$s" data-nonce="%2$s">%3$s</a>',
 				$item->credential_id,
-				wp_create_nonce( 'delete-key_' . $item->credential_id ),
+				(string) wp_create_nonce( 'delete-key_' . $item->credential_id ),
 				__( 'Revoke', 'two-factor-provider-webauthn' )
 			),
 		];

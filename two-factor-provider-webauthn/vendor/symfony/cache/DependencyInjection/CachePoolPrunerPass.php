@@ -15,7 +15,6 @@ use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Pruneabl
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\DependencyInjection\Argument\IteratorArgument;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\DependencyInjection\ContainerBuilder;
-use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\DependencyInjection\Reference;
 
 /**
@@ -35,14 +34,8 @@ class CachePoolPrunerPass implements CompilerPassInterface
         $services = [];
 
         foreach ($container->findTaggedServiceIds('cache.pool') as $id => $tags) {
-            $class = $container->getParameterBag()->resolveValue($container->getDefinition($id)->getClass());
-
-            if (!$reflection = $container->getReflectionClass($class)) {
-                throw new InvalidArgumentException(sprintf('Class "%s" used for service "%s" cannot be found.', $class, $id));
-            }
-
-            if ($reflection->implementsInterface(PruneableInterface::class)) {
-                $services[$id] = new Reference($id);
+            if ($tags[0]['pruneable'] ?? $container->getReflectionClass($container->getDefinition($id)->getClass(), false)?->implementsInterface(PruneableInterface::class) ?? false) {
+                $services[$tags[0]['name'] ?? $id] = new Reference($id);
             }
         }
 
