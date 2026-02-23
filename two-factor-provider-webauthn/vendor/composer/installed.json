@@ -45,9 +45,6 @@
                 "bamarni-bin": {
                     "bin-links": true,
                     "forward-command": false
-                },
-                "patches_applied": {
-                    "Fix namespace in check": "patches/guzzle.patch"
                 }
             },
             "installation-source": "dist",
@@ -466,14 +463,6 @@
             },
             "time": "2025-02-14T10:38:10+00:00",
             "type": "library",
-            "extra": {
-                "patches_applied": {
-                    "Fix interoperability with imposter": "patches/webauthn.patch",
-                    "Fix client extension verification (GH-295)": "patches/client-extensions.patch",
-                    "Fix EdDSA keys/improve YubiKey support": "patches/gh-541.patch",
-                    "Fix Firefox iCloud support": "patches/webauthn-icloud.patch"
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
