@@ -7,11 +7,13 @@ use Throwable;
 use UnexpectedValueException;
 use WildWolf\Utils\Singleton;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\{
+	MadWizard\WebAuthn\Dom\ResidentKeyRequirement,
+	MadWizard\WebAuthn\Exception\WebAuthnException,
 	MadWizard\WebAuthn\Json\JsonConverter,
 	MadWizard\WebAuthn\Server\Registration\RegistrationContext,
 	MadWizard\WebAuthn\Server\Registration\RegistrationOptions,
+	MadWizard\WebAuthn\Server\Registration\RegistrationResultInterface,
 };
-use wpdb;
 
 final class AJAX {
 	use Singleton;
@@ -77,12 +79,48 @@ final class AJAX {
 			$context = $options->getContext();
 			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
 			update_user_meta( $user_id, self::REGISTRATION_CONTEXT_USER_META, base64_encode( serialize( $context ) ) );
+
+			$json = $options->getClientOptionsJson();
+
+			/** @psalm-var array{authenticatorSelection?: array{residentKey?: string, requireResidentKey?: bool}} $json */
+			$json['authenticatorSelection'] ??= [];
+
+			$resident_key_requirement = $settings->get_resident_key_requirement();
+			switch ( $resident_key_requirement ) {
+				case 'preferred':
+				default:
+					$json['authenticatorSelection']['residentKey']        = 'preferred';
+					$json['authenticatorSelection']['requireResidentKey'] = false;
+					break;
+
+				case ResidentKeyRequirement::DISCOURAGED:
+					$json['authenticatorSelection']['residentKey']        = 'discouraged';
+					$json['authenticatorSelection']['requireResidentKey'] = false;
+					break;
+
+				case ResidentKeyRequirement::REQUIRED:
+					$json['authenticatorSelection']['residentKey']        = 'required';
+					$json['authenticatorSelection']['requireResidentKey'] = true;
+					break;
+			}
+
 			wp_send_json_success( [
-				'options' => $options->getClientOptionsJson(),
+				'options' => $json,
 				'nonce'   => wp_create_nonce( "webauthn-register_key_{$user_id}" ),
 			] );
+		} catch ( WebAuthnException | InvalidArgumentException $e ) {
+			/**
+			 * Fires when an error occurs during the pre-registration process, which includes generating registration options and saving the registration context.
+			 *
+			 * @param Throwable $e The exception that caused the failure.
+			 * @param int $user_id The ID of the user attempting to register a key.
+			 * @since 2.6.0
+			 */
+			do_action( 'webauthn_preregistration_error', $e, $user_id );
+			wp_send_json_error( $e->getMessage(), 400 );
 		} catch ( Throwable $e ) {
-			wp_send_json_error( $e->getMessage() );
+			do_action( 'webauthn_preregistration_error', $e, $user_id );
+			wp_send_json_error( __( 'An unexpected error occurred. Please try again later.', 'two-factor-provider-webauthn' ), 400 );
 		}
 	}
 
@@ -94,6 +132,9 @@ final class AJAX {
 
 		$this->check_registration_nonce( $user_id );
 		$this->verify_capabilities( $user_id );
+
+		/** @var RegistrationResultInterface|null $result */
+		$result = null;
 
 		try {
 			$user = get_user_by( 'id', $user_id );
@@ -131,35 +172,6 @@ final class AJAX {
 				$store = new WebAuthn_Credential_Store();
 				$key   = $store->save_user_key( $name, $result );
 				if ( null === $key ) {
-					if ( defined( 'DEBUG_TFPWA' ) && true === constant( 'DEBUG_TFPWA' ) ) {
-						/** @var wpdb $wpdb */
-						/** @psalm-suppress InvalidGlobal */
-						global $wpdb;
-						$last_query = $wpdb->last_query;
-						$last_error = $wpdb->last_error;
-
-						/** @var string */
-						$credential = wp_json_encode( [
-							'user_handle'   => $result->getUserHandle()->toString(),
-							'credential_id' => $result->getCredentialId()->toString(),
-							'public_key'    => $result->getPublicKey()->toString(),
-							'counter'       => $result->getSignatureCounter(),
-							'name'          => $name ?: __( 'New Key', 'two-factor-provider-webauthn' ),
-							'added'         => time(),
-							'last_used'     => time(),
-							'u2f'           => 0,
-						] );
-
-						// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-						error_log( sprintf( 'Unable to save the key to the database. Last query: %s, last error: %s, credential: %s', $last_query, $last_error, $credential ) );
-						throw new UnexpectedValueException(
-							"Unable to save the key to the database.\n"
-							. "Last query: {$last_query}\n"
-							. "Last error: {$last_error}\n"
-							. "Credential: {$credential}"
-						);
-					}
-
 					throw new UnexpectedValueException( __( 'Unable to save the key to the database.', 'two-factor-provider-webauthn' ) );
 				}
 
@@ -180,8 +192,20 @@ final class AJAX {
 			} else {
 				throw new InvalidArgumentException( __( 'Bad request.', 'two-factor-provider-webauthn' ) );
 			}
-		} catch ( Throwable $e ) {
+		} catch ( WebAuthnException | InvalidArgumentException | UnexpectedValueException $e ) {
+			/**
+			 * Fires when an error occurs during the registration process, which includes validating the credential and saving it to the database.
+			 *
+			 * @param Throwable $e The exception that caused the failure.
+			 * @param int $user_id The ID of the user attempting to register a key.
+			 * @param RegistrationResultInterface|null $result The result of the registration attempt, if available. This may be null if the error occurred before the registration result could be obtained.
+			 * @since 2.6.0
+			 */
+			do_action( 'webauthn_registration_error', $e, $user_id, $result );
 			wp_send_json_error( $e->getMessage(), 400 );
+		} catch ( Throwable $e ) {
+			do_action( 'webauthn_registration_error', $e, $user_id, $result );
+			wp_send_json_error( __( 'An unexpected error occurred. Please try again later.', 'two-factor-provider-webauthn' ), 400 );
 		} finally {
 			delete_user_meta( $user_id, self::REGISTRATION_CONTEXT_USER_META );
 		}

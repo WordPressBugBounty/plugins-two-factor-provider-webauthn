@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wildwolf/two-factor-provider-webauthn',
-        'pretty_version' => '2.5.6',
-        'version' => '2.5.6.0',
-        'reference' => 'b5958f5dc5a35f87249002289779baed8fb7d4b8',
+        'pretty_version' => '2.6.0',
+        'version' => '2.6.0.0',
+        'reference' => 'd54394b64598bb4e5bf5bf11bf06c99bd0cb4543',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -203,9 +203,9 @@
             'dev_requirement' => false,
         ),
         'symfony/cache' => array(
-            'pretty_version' => 'v6.4.33',
-            'version' => '6.4.33.0',
-            'reference' => '5b088fa41eb9568748dc255c45e4054c387ba73b',
+            'pretty_version' => 'v6.4.34',
+            'version' => '6.4.34.0',
+            'reference' => 'a0a1690543329685c044362c873b78c6de9d4faa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/cache',
             'aliases' => array(),
@@ -281,9 +281,9 @@
             'dev_requirement' => false,
         ),
         'wildwolf/two-factor-provider-webauthn' => array(
-            'pretty_version' => '2.5.6',
-            'version' => '2.5.6.0',
-            'reference' => 'b5958f5dc5a35f87249002289779baed8fb7d4b8',
+            'pretty_version' => '2.6.0',
+            'version' => '2.6.0.0',
+            'reference' => 'd54394b64598bb4e5bf5bf11bf06c99bd0cb4543',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
