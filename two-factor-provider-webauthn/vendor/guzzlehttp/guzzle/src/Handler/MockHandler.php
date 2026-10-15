@@ -7,7 +7,6 @@ use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\HandlerStack;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Promise as P;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Promise\PromiseInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\TransferStats;
-use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Utils;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\RequestInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\ResponseInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\StreamInterface;
@@ -160,7 +159,7 @@ class MockHandler implements \Countable
             ) {
                 $this->queue[] = $value;
             } else {
-                throw new \TypeError('Expected a Response, Promise, Throwable or callable. Found '.Utils::describeType($value));
+                throw new \TypeError('Expected a Response, Promise, Throwable or callable. Found '.\get_debug_type($value));
             }
         }
     }
