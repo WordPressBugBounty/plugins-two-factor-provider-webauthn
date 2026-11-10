@@ -2,10 +2,12 @@
 
 namespace WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Kevinrob\GuzzleCache;
 
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Psr7\PumpStream;
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\MessageInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\RequestInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Message\ResponseInterface;
 
-class CacheEntry
+class CacheEntry implements \Serializable
 {
     /**
      * @var RequestInterface
@@ -16,14 +18,6 @@ class CacheEntry
      * @var ResponseInterface
      */
     protected $response;
-
-    /**
-     * This field is only used for serialize.
-     * Response::body is a stream and can't be serialized.
-     *
-     * @var string
-     */
-    protected $responseBody;
 
     /**
      * @var \DateTime
@@ -63,8 +57,8 @@ class CacheEntry
         RequestInterface $request,
         ResponseInterface $response,
         \DateTime $staleAt,
-        \DateTime $staleIfErrorTo = null,
-        \DateTime $staleWhileRevalidateTo = null
+        ?\DateTime $staleIfErrorTo = null,
+        ?\DateTime $staleWhileRevalidateTo = null
     ) {
         $this->dateCreated = new \DateTime();
 
@@ -263,25 +257,77 @@ class CacheEntry
         return time() - $this->dateCreated->getTimestamp();
     }
 
-    public function __sleep()
+    public function __serialize(): array
     {
-        // Stream/Resource can't be serialized... So we copy the content
-        if ($this->response !== null) {
-            $this->responseBody = (string) $this->response->getBody();
-            $this->response->getBody()->rewind();
-        }
-
-        return array_keys(get_object_vars($this));
+        return [
+            'request' => self::toSerializeableMessage($this->request),
+            'response' => $this->response !== null ? self::toSerializeableMessage($this->response) : null,
+            'staleAt' => $this->staleAt,
+            'staleIfErrorTo' => $this->staleIfErrorTo,
+            'staleWhileRevalidateTo' => $this->staleWhileRevalidateTo,
+            'dateCreated' => $this->dateCreated,
+            'timestampStale' => $this->timestampStale,
+        ];
     }
 
-    public function __wakeup()
+    public function __unserialize(array $data): void
     {
-        // We re-create the stream of the response
-        if ($this->response !== null) {
-            $this->response = $this->response
-                ->withBody(
-                    \GuzzleHttp\Psr7\Utils::streamFor($this->responseBody)
-                );
+        $prefix = '';
+        if (isset($data["\0*\0request"])) {
+            // We are unserializing a cache entry which was serialized with a version < 4.1.1
+            $prefix = "\0*\0";
         }
+        $this->request = self::restoreStreamBody($data[$prefix.'request']);
+        $this->response = $data[$prefix.'response'] !== null ? self::restoreStreamBody($data[$prefix.'response']) : null;
+        $this->staleAt = $data[$prefix.'staleAt'];
+        $this->staleIfErrorTo = $data[$prefix.'staleIfErrorTo'];
+        $this->staleWhileRevalidateTo = $data[$prefix.'staleWhileRevalidateTo'];
+        $this->dateCreated = $data[$prefix.'dateCreated'];
+        $this->timestampStale = $data[$prefix.'timestampStale'];
+    }
+
+    /**
+     * Stream/Resource can't be serialized... So we copy the content into an implementation of `Psr\Http\Message\StreamInterface`
+     *
+     * @template T of MessageInterface
+     *
+     * @param T $message
+     * @return T
+     */
+    private static function toSerializeableMessage(MessageInterface $message): MessageInterface
+    {
+        $bodyString = (string)$message->getBody();
+
+        return $message->withBody(
+            new PumpStream(
+                new BodyStore($bodyString),
+                [
+                    'size' => strlen($bodyString),
+                ]
+            )
+        );
+    }
+
+    /**
+     * @template T of MessageInterface
+     *
+     * @param T $message
+     * @return T
+     */
+    private static function restoreStreamBody(MessageInterface $message): MessageInterface
+    {
+        return $message->withBody(
+            \GuzzleHttp\Psr7\Utils::streamFor((string) $message->getBody())
+        );
+    }
+
+    public function serialize()
+    {
+        return serialize($this->__serialize());
+    }
+
+    public function unserialize($data)
+    {
+        $this->__unserialize(unserialize($data));
     }
 }

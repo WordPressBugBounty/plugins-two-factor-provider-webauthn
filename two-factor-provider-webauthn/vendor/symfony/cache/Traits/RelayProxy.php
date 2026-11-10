@@ -32,6 +32,7 @@ use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\R
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\Relay\Relay40Trait;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\Relay\Relay50Trait;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\Relay\Relay502Trait;
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\Relay\Relay61Trait;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\Cache\Traits\Relay\SwapdbTrait;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\VarExporter\LazyObjectInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Symfony\Component\VarExporter\LazyProxyTrait;
@@ -72,6 +73,7 @@ class RelayProxy extends \Relay\Relay implements ResetInterface, LazyObjectInter
     use Relay40Trait;
     use Relay50Trait;
     use Relay502Trait;
+    use Relay61Trait;
     use SwapdbTrait;
 
     private const LAZY_OBJECT_PROPERTY_SCOPES = [];

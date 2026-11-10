@@ -3,7 +3,7 @@
 namespace WildWolf\WordPress\TwoFactorWebAuthn\Vendor\MadWizard\WebAuthn\Remote;
 
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Client;
-use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Exception\RequestException;
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\GuzzleHttp\Exception\BadResponseException;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\MadWizard\WebAuthn\Exception\RemoteException;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Http\Client\ClientExceptionInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Psr\Log\LoggerAwareInterface;
@@ -30,13 +30,9 @@ class Downloader implements DownloaderInterface, LoggerAwareInterface
         // TODO: remove token in logging?
         try {
             $response = $this->client->get($uri);
-        } catch (RequestException $e) {
+        } catch (BadResponseException $e) {
             $errorResponse = $e->getResponse();
-            if ($errorResponse) {
-                $message = sprintf('Error response while downloading URL: %d %s', $errorResponse->getStatusCode(), $errorResponse->getReasonPhrase());
-            } else {
-                $message = sprintf('Failed to download URL: %s', $e->getMessage());
-            }
+            $message = sprintf('Error response while downloading URL: %d %s', $errorResponse->getStatusCode(), $errorResponse->getReasonPhrase());
             throw new RemoteException($message, 0, $e);
         } catch (ClientExceptionInterface $e) {
             throw new RemoteException(sprintf('Failed to download URL: %s', $e->getMessage()), 0, $e);

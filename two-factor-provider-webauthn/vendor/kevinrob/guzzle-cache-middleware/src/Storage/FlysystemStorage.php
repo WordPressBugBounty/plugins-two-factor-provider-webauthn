@@ -3,9 +3,9 @@
 namespace WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Kevinrob\GuzzleCache\Storage;
 
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\Kevinrob\GuzzleCache\CacheEntry;
-use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\League\Flysystem\AdapterInterface;
 use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\League\Flysystem\Filesystem;
-use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\League\Flysystem\FileNotFoundException;
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\League\Flysystem\FilesystemAdapter;
+use WildWolf\WordPress\TwoFactorWebAuthn\Vendor\League\Flysystem\FilesystemException;
 
 class FlysystemStorage implements CacheStorageInterface
 {
@@ -15,7 +15,7 @@ class FlysystemStorage implements CacheStorageInterface
      */
     protected $filesystem;
 
-    public function __construct(AdapterInterface $adapter)
+    public function __construct(FilesystemAdapter $adapter)
     {
         $this->filesystem = new Filesystem($adapter);
     }
@@ -25,7 +25,7 @@ class FlysystemStorage implements CacheStorageInterface
      */
     public function fetch($key)
     {
-        if ($this->filesystem->has($key)) {
+        if ($this->filesystem->fileExists($key)) {
             // The file exist, read it!
             $data = @unserialize(
                 $this->filesystem->read($key)
@@ -44,7 +44,12 @@ class FlysystemStorage implements CacheStorageInterface
      */
     public function save($key, CacheEntry $data)
     {
-        return $this->filesystem->put($key, serialize($data));
+      try {
+        $this->filesystem->write($key, serialize($data));
+        return true;
+      } catch (FilesystemException $e) {
+        return false;
+      }
     }
 
     /**
@@ -54,7 +59,7 @@ class FlysystemStorage implements CacheStorageInterface
     {
         try {
             return $this->filesystem->delete($key);
-        } catch (FileNotFoundException $ex) {
+        } catch (FilesystemException $ex) {
             return true;
         }
     }
